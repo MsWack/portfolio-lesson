@@ -1,0 +1,116 @@
+.resume {
+	padding-top: 120px;
+
+	&__title {
+		text-align: center;
+		line-height: 37px;
+		position: relative;
+		@include before_circle;
+
+		&:before {
+			top: 0;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	}
+
+	.divider {
+		margin-bottom: 60px;
+	}
+
+	&__subtitle {
+		text-align: center;
+	}
+
+	&__wrapper {
+		padding: 0 77px;
+		display: grid;
+		grid-template-columns: repeat(2, 425px);
+		column-gap: 136px;
+	}
+
+	&__column {
+		&-title {
+			position: relative;
+			padding-left: 35px;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 50%;
+				transform: translateY(-50%);
+				left: -7px;
+				width: 15px;
+				height: 15px;
+				border-radius: 100%;
+				background: $main-color;
+
+			}
+		}
+
+		ul {
+			list-style-type: none;
+			//создаем вертикальную полоску
+			li {
+				position: relative;
+
+				&:before {
+					content: '';
+					width: 1px;
+					//добавляем к высоте 7,6px, так как сметили полоску вверх на -7,6 px
+					height: calc(100% + 7.6px);
+					background-color: #000;
+					position: absolute;
+					top: -7.6px;
+					left: 0;					
+				}
+			}
+		}
+	}
+
+	&__item {
+		// создаем горизонтальные полоски
+		position: relative;
+		&:before {
+			content: '';
+			width: 42px;
+			height: 1px;
+			background-color: #000;
+			position: absolute;
+			top: 63px;
+			left: 0;
+		}
+
+		&-head {
+			position: relative;
+			padding: 45px 0 0 100px;
+			margin-bottom: 12px;
+		}
+
+		&-icon {
+			position: absolute;
+			left: 42px;
+			top: 45px;
+			@include before_circle;
+
+			img {
+				position: absolute;
+				top: 14px;
+				left: 17px;
+			}
+		}
+
+		&-subtitle {
+			font-size: 12px;
+			line-height: 18px;
+			color: #000000;
+		}
+
+		&-body {
+			padding: 0 0 0 43px;
+			font-size: 12px;
+			line-height: 18px;
+			color: #000000;
+		}
+	}
+}
