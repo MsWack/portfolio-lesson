@@ -2,9 +2,9 @@
 
 //создаем переменные
 const hamburger = document.querySelector('.hamburger'),
-	menu = document.querySelector('.menu'),
-	closeElem = document.querySelector('.menu__close'),
-	overlay = document.querySelector('.menu__overlay');
+		menu = document.querySelector('.menu'),
+		closeElem = document.querySelector('.menu__close'),
+		overlay = document.querySelector('.menu__overlay');
 
 //при клике на гамбургер
 hamburger.addEventListener('click', () => {
@@ -29,4 +29,16 @@ document.addEventListener('keyup', function (e) {
 		menu.classList.remove('active');
 	}
 	
+});
+
+//делаем автоматический пересчет процентов в блоке skills (чтобы не надо было прописывать отдельно стили для каждого элемента span)
+
+//создаем переменные, где querySelectorAll выбирает все элемент с указанным классом
+const percents = document.querySelectorAll('.skills__rating-percent'),
+		lines = document.querySelectorAll('.skills__rating-line span');
+
+//из элемента percents с определенным индексом (i),
+percents.forEach((item, i) => {
+	//который соответствует такому же индексу элемента lines, берем значение и устанавливаем его в стили для элемента lines. innerHTML - позволяет вытащить само значение
+	lines[i].style.width = item.innerHTML;
 });
